@@ -8,6 +8,20 @@
     {% endblock %}
     <style>
         /* Additional styles here */
+        @media only screen and (max-width: 600px) {
+            /* Styles spécifiques pour les écrans de moins de 600px de large */
+            .navbar-nav {
+                flex-direction: column;
+                padding-left: 0;
+            }
+            .navbar-nav .nav-item {
+                margin-bottom: 8px;
+            }
+            .navbar-nav .nav-link {
+                padding-top: .5rem;
+                padding-bottom: .5rem;
+            }
+        }
     </style>
 </head>
 <body>
