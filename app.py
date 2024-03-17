@@ -13,10 +13,10 @@ cur.execute('''CREATE TABLE IF NOT EXISTS users (
                 password TEXT NOT NULL
              )''')
 cur.execute('''CREATE TABLE IF NOT EXISTS cars (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 year INTEGER NOT NULL,
                 make TEXT NOT NULL,
-                color TEXT NOT NULL
+                color TEXT NOT NULL,
+                id INTEGER PRIMARY KEY AUTOINCREMENT
              )''')
 @app.route('/')
 def hello():
@@ -65,7 +65,7 @@ def add():
         color = request.form['color']
         
         # Insert data into the database
-        cur.execute("INSERT INTO cars VALUES (?, ?, ?)", (year, make, color))
+        cur.execute("INSERT INTO cars (year, make, color) VALUES (?, ?, ?)", (year, make, color))
         con.commit()
         flash('Car added successfully!')
     return render_template("add.html")
