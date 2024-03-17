@@ -12,6 +12,12 @@ cur.execute('''CREATE TABLE IF NOT EXISTS users (
                 username TEXT NOT NULL,
                 password TEXT NOT NULL
              )''')
+cur.execute('''CREATE TABLE IF NOT EXISTS cars (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                year INTEGER NOT NULL,
+                make TEXT NOT NULL,
+                color TEXT NOT NULL
+             )''')
 @app.route('/')
 def hello():
     return render_template("home.html")
