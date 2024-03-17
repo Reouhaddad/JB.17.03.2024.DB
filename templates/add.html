@@ -1,0 +1,22 @@
+<!-- add.html -->
+{% extends "layout.html" %}
+{% block title %}Add Car{% endblock %}
+{% block content %}
+  <h1>Add Car</h1>
+  {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-success">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+  <form action="/add" method="post">
+    <label for="year">Year:</label>
+    <input type="text" id="year" name="year"><br><br>
+    <label for="make">Make:</label>
+    <input type="text" id="make" name="make"><br><br>
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color"><br><br>
+    <input type="submit" value="Add Car">
+  </form>
+{% endblock %}
